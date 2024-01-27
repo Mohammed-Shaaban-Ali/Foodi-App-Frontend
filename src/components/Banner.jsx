@@ -99,26 +99,28 @@ const Banner = () => {
           </div>
         </div>
 
-        <div className="md:w-1/2  space-y-9">
+        <div className="md:w-1/2  space-y-8">
           <h2 className="md:text-5xl text-4xl font-bold md:leading-snug leading-snug">
-            Dive into Delights Of Delectable{" "}
-            <span className="text-green">Food</span>
+            Dive into Delights
+            <br />
+            Of Delectable
+            <span className="text-green"> Food</span>
           </h2>
-          <p className="text-[#4A4A4A] text-xl font-[500]">
-            Where Each Plate Weaves a Story of Culinary Mastery and Passionate
-            Craftsmanship
+          <p className="text-[#4A4A4A] text-lg font-[500]">
+            Where Each Plate Weaves a Story of Culinary <br /> Mastery and
+            Passionate Craftsmanship
           </p>
           <div className=" flex gap-4 items-center justify-start">
             <button className="btn bg-green transition hover:bg-greenhover px-9 py-1 font-semibold text-white rounded-full shadow-sm border-none shadow-green">
               Order Now
             </button>
-            <button className="btn text-[#4D4D4D] px-8 border-none font-semibold rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100 gap-3">
+            <button className="btn text-[#4D4D4D] shadow-none px-8 border-none font-semibold rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100 gap-3">
               Watch Video
               <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-lg">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
+                  width="16"
+                  height="16"
                   viewBox="0 0 24 28"
                   fill="none"
                 >
