@@ -67,3 +67,8 @@ nav {
   text-underline-offset: 5px;
   color: #39db4a;
 }
+
+.menu :where(li > details > summary):after,
+.menu :where(li > .menu-dropdown-toggle):after {
+  color: #39db4a;
+}
