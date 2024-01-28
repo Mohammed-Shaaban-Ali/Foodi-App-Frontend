@@ -3,6 +3,7 @@ import Banner from "../../components/Banner";
 import Catagories from "./Catagories";
 import SpacialDishes from "./SpacialDishes";
 import Testimonials from "./Testimonials";
+import OurServices from "./OurServices";
 
 function Home() {
   return (
@@ -11,6 +12,7 @@ function Home() {
       <Catagories />
       <SpacialDishes />
       <Testimonials />
+      <OurServices />
     </div>
   );
 }

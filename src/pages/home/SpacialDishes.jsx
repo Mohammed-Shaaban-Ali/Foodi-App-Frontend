@@ -83,7 +83,7 @@ const SpecialDishes = () => {
     prevArrow: <SamplePrevArrow />,
   };
   return (
-    <div className="max-w-screen-2xl container mx-auto xl:px-24 px-4 my-20 relative">
+    <section className="max-w-screen-2xl container mx-auto xl:px-24 px-4 my-20 relative">
       <div className="text-left">
         <p className="subtitle">Customer Favorites</p>
         <h2 className="title">Popular Catagories</h2>
@@ -112,7 +112,7 @@ const SpecialDishes = () => {
           <Card item={item} key={i} />
         ))}
       </Slider>
-    </div>
+    </section>
   );
 };
 

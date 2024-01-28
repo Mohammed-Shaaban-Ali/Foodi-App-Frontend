@@ -4,7 +4,7 @@ import MyImage from "../lazyLoadImage/MyImage";
 const Banner = () => {
   return (
     <section className="section-containar bg-gradient-to-r from-[#FAFAFA] from-0% to-[#FCFCFC] to-100% ">
-      <div className="py-8 flex flex-col md:flex-row-reverse justify-between items-center gap-8">
+      <div className="py-8 flex flex-col md:flex-row-reverse justify-center items-center gap-8">
         <div className="md:w-1/2">
           <div className="w-[100%] md:w-[630px] ">
             <MyImage
@@ -105,16 +105,14 @@ const Banner = () => {
           </div>
         </div>
 
-        <div className="md:w-1/2  space-y-8">
+        <div className="md:w-1/2  space-y-8 md:max-w-lg">
           <h2 className="md:text-5xl text-4xl font-bold md:leading-snug leading-snug">
-            Dive into Delights
-            <br />
-            Of Delectable
+            Dive into Delights Of Delectable
             <span className="text-green"> Food</span>
           </h2>
-          <p className="text-[#4A4A4A] text-lg font-[500]">
-            Where Each Plate Weaves a Story of Culinary <br /> Mastery and
-            Passionate Craftsmanship
+          <p className="text-[#4A4A4A] text-sm md:text-xl font-[500]">
+            Where Each Plate Weaves a Story of Culinary Mastery and Passionate
+            Craftsmanship
           </p>
           <div className=" flex gap-4 items-center justify-start">
             <button className="btn bg-green transition hover:bg-greenhover px-9 py-1 font-semibold text-white rounded-full shadow-sm border-none shadow-green">
