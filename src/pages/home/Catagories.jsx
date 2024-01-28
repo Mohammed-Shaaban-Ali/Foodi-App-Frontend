@@ -1,4 +1,5 @@
 import React from "react";
+import MyImage from "../../lazyLoadImage/MyImage";
 
 const categoryItems = [
   {
@@ -43,7 +44,7 @@ const Catagories = () => {
             className="shadow-lg rounded-3xl bg-white py-6 w-64 mx-auto text-center cursor-pointer hover:-translate-y-4 transition-all duration-300 z-10"
           >
             <div className="w-full mx-auto flex items-center justify-center">
-              <img
+              <MyImage
                 src={item.image}
                 alt={item.title}
                 className="bg-[#C1F1C6] p-5 rounded-full w-28 h-28"
