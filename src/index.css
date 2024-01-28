@@ -17,7 +17,7 @@ nav {
 }
 
 .subtitle {
-  @apply text-red uppercase tracking-wide font-semibold text-lg;
+  @apply text-red uppercase  tracking-[.27em] font-semibold text-sm;
 }
 
 .title {

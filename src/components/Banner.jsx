@@ -1,4 +1,5 @@
 import React from "react";
+import MyImage from "../lazyLoadImage/MyImage";
 
 const Banner = () => {
   return (
@@ -6,16 +7,21 @@ const Banner = () => {
       <div className="py-8 flex flex-col md:flex-row-reverse justify-between items-center gap-8">
         <div className="md:w-1/2">
           <div className="w-[100%] md:w-[630px] ">
-            <img
+            <MyImage
+              alt="banner"
+              src="/images/home/banner.png"
+              className="w-full object-contain"
+            />
+            {/* <img
               src="/images/home/banner.png"
               className="w-full object-contain"
               alt="banner"
-            />
+            /> */}
           </div>
 
           <div className="flex justify-between items-center -mt-14  ">
             <div className="flex px-3 md:w-[300px] bg-white shadow-lg rounded-2xl py-2 px3 items-center justify-start gap-3">
-              <img
+              <MyImage
                 className="rounded-xl "
                 src="/images/home/b-food1.png"
                 alt="food1"
@@ -47,7 +53,7 @@ const Banner = () => {
                     type="radio"
                     name="rating-2"
                     className="mask mask-star-2 bg-yellow-300"
-                    checked
+                    defaultChecked
                   />
                 </div>
                 <p className="font-semibold text-[#515151]">
@@ -56,7 +62,7 @@ const Banner = () => {
               </div>
             </div>
             <div className="hidden md:flex px-3 w-[300px] bg-white shadow-lg rounded-2xl py-2 px3 items-center gap-3">
-              <img
+              <MyImage
                 className="rounded-xl "
                 src="/images/home/b-food1.png"
                 alt="food1"
@@ -83,7 +89,7 @@ const Banner = () => {
                     type="radio"
                     name="rating-2"
                     className="mask mask-star-2 bg-yellow-300"
-                    checked
+                    defaultChecked
                   />
                   <input
                     type="radio"
