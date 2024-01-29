@@ -30,7 +30,7 @@ const categoryItems = [
 
 const Catagories = () => {
   return (
-    <div className="max-w-screen-xl container mx-auto xl:px-24 px-4 py-16">
+    <section className="max-w-screen-xl container mx-auto xl:px-24 px-4 py-16">
       <div className="text-center">
         <p className="subtitle">Customer Favorites</p>
         <h2 className="title">Popular Catagories</h2>
@@ -57,7 +57,7 @@ const Catagories = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
