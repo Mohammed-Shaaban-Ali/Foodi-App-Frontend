@@ -4,6 +4,7 @@ import { FaRegUser } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import Modal from "./Modal";
 import { AuthContext } from "./../contexts/AuthProvider";
+import Profile from "./Profile";
 
 const Navbar = () => {
   const [isSticky, setSticky] = useState(false);
@@ -146,12 +147,17 @@ const Navbar = () => {
               </span>
             </div>
           </div>
-          <button
-            onClick={() => document.getElementById("my_modal_5").showModal()}
-            className="btn flex items-center  hover:bg-greenhover gap-2 rounded-full px-6 bg-green text-white"
-          >
-            <FaRegUser /> Login
-          </button>
+
+          {user ? (
+            <Profile user={user} />
+          ) : (
+            <button
+              onClick={() => document.getElementById("my_modal_5").showModal()}
+              className="btn flex items-center  hover:bg-greenhover gap-2 rounded-full px-6 bg-green text-white"
+            >
+              <FaRegUser /> Login
+            </button>
+          )}
           <Modal />
         </div>
       </div>
