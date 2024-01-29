@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import logo from "/logo.png";
-import { BiPhoneCall } from "react-icons/bi";
+import { FaRegUser } from "react-icons/fa";
+import { Link, NavLink } from "react-router-dom";
+import Modal from "./Modal";
 
 const Navbar = () => {
   const [isSticky, setSticky] = useState(false);
@@ -24,24 +26,14 @@ const Navbar = () => {
   const navItem = (
     <>
       <li>
-        <a href="/">Home</a>
+        <NavLink to="/" end>
+          Home
+        </NavLink>
       </li>
-
       <li>
-        <details>
-          <summary>Menu</summary>
-          <ul className="p-2">
-            <li>
-              <a>All</a>
-            </li>
-            <li>
-              <a>Salad</a>
-            </li>
-            <li>
-              <a>Pizza</a>
-            </li>
-          </ul>
-        </details>
+        <NavLink to="/menu" end>
+          Menu
+        </NavLink>
       </li>
 
       <li className="static">
@@ -49,20 +41,20 @@ const Navbar = () => {
           <summary>Services</summary>
           <ul className="p-2">
             <li>
-              <a>Online Order</a>
+              <NavLink to="/Online">Online Order</NavLink>
             </li>
             <li>
-              <a>Table Booking</a>
+              <NavLink to="/Online">Table Booking</NavLink>
             </li>
             <li>
-              <a>Order Tracking</a>
+              <NavLink to="/Online">Order Tracking</NavLink>
             </li>
           </ul>
         </details>
       </li>
 
       <li>
-        <a href="/">Offers</a>
+        <NavLink to="/offer">Offers</NavLink>
       </li>
     </>
   );
@@ -102,9 +94,9 @@ const Navbar = () => {
               {navItem}
             </ul>
           </div>
-          <a href="/">
+          <Link href="/">
             <img src={logo} alt="logo" />
-          </a>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navItem}</ul>
@@ -152,10 +144,13 @@ const Navbar = () => {
               </span>
             </div>
           </div>
-          <a className="btn bg-green transition hover:bg-greenhover rounded-full text-white px-6 flex items-center gap-3 text-lg">
-            <BiPhoneCall className="" />
-            Contact
-          </a>
+          <button
+            onClick={() => document.getElementById("my_modal_5").showModal()}
+            className="btn flex items-center  hover:bg-greenhover gap-2 rounded-full px-6 bg-green text-white"
+          >
+            <FaRegUser /> Login
+          </button>
+          <Modal />
         </div>
       </div>
     </header>

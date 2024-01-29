@@ -108,37 +108,37 @@ const Menu = () => {
           <div className="flex flex-row justify-start md:items-center md:gap-8 gap-4  flex-wrap">
             <button
               onClick={showAll}
-              className={selectedCategory === "all" ? "active" : ""}
+              className={selectedCategory === "all" ? "activet" : ""}
             >
               All
             </button>
             <button
               onClick={() => filterItems("salad")}
-              className={selectedCategory === "salad" ? "active" : ""}
+              className={selectedCategory === "salad" ? "activet" : ""}
             >
               Salad
             </button>
             <button
               onClick={() => filterItems("pizza")}
-              className={selectedCategory === "pizza" ? "active" : ""}
+              className={selectedCategory === "pizza" ? "activet" : ""}
             >
               Pizza
             </button>
             <button
               onClick={() => filterItems("soup")}
-              className={selectedCategory === "soup" ? "active" : ""}
+              className={selectedCategory === "soup" ? "activet" : ""}
             >
               Soups
             </button>
             <button
               onClick={() => filterItems("dessert")}
-              className={selectedCategory === "dessert" ? "active" : ""}
+              className={selectedCategory === "dessert" ? "activet" : ""}
             >
               Desserts
             </button>
             <button
               onClick={() => filterItems("drinks")}
-              className={selectedCategory === "drinks" ? "active" : ""}
+              className={selectedCategory === "drinks" ? "activet" : ""}
             >
               Drinks
             </button>
