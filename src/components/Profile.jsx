@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { AuthContext } from "../contexts/AuthProvider";
 import MyImage from "./../lazyLoadImage/MyImage";
 import { FaUserAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Profile = ({ user }) => {
   const { logOut } = useContext(AuthContext);
@@ -46,13 +47,13 @@ const Profile = ({ user }) => {
           <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
             {/* Sidebar content here */}
             <li>
-              <a>Profile</a>
+              <Link to="/update-profile">Profile</Link>
             </li>
             <li>
-              <a>Order</a>
+              <Link to="/">Order</Link>
             </li>
             <li>
-              <a>Setting</a>
+              <Link to="/">Setting</Link>
             </li>
             <li>
               <a onClick={handelLogout}>Logout</a>

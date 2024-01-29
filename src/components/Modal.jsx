@@ -25,14 +25,15 @@ const Modal = () => {
     // console.log(email, password);
     login(email, password)
       .then((result) => {
-        const user = result.user;
-        alert("Login successfull");
+        // const user = result.user;
         document.getElementById("my_modal_5").close();
         navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
-        setErrorMessage("Provide a correct email and password!");
+        setErrorMessage(
+          errorMessage ? errorMessage : "Provide a correct email and password!"
+        );
       });
   };
 
@@ -40,8 +41,9 @@ const Modal = () => {
   const handleLogin = () => {
     signUpWithGmail()
       .then((result) => {
-        const user = result.user;
-        alert("Login successfull!");
+        // const user = result.user;
+        document.getElementById("my_modal_5").close();
+
         navigate(from, { replace: true });
       })
       .catch((error) => console.log(error));
