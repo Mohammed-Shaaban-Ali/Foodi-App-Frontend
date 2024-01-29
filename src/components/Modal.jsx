@@ -1,14 +1,14 @@
 import React, { useContext, useState } from "react";
 import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-// import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 // import { AuthContext } from "../contexts/AuthProvider";
 const Modal = () => {
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   formState: { errors },
-  // } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   // const { signUpWithGmail, login } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState("");
@@ -65,7 +65,7 @@ const Modal = () => {
                 type="email"
                 placeholder="email"
                 className="input input-bordered"
-                // {...register("email")}
+                {...register("email")}
               />
             </div>
 
@@ -78,7 +78,7 @@ const Modal = () => {
                 type="password"
                 placeholder="password"
                 className="input input-bordered"
-                // {...register("password")}
+                {...register("password")}
               />
               <label className="label mt-1">
                 <a href="#" className="label-text-alt link link-hover">

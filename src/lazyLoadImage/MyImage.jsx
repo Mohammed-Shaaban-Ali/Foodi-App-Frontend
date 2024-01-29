@@ -1,5 +1,6 @@
 import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const MyImage = (props) => {
   return (
@@ -13,10 +14,10 @@ const MyImage = (props) => {
         // eslint-disable-next-line react/prop-types
         src={props.src} // use normal <img> attributes as props
         //   width={image.width}
-        effect="opacity"
+        effect="blur"
         wrapperProps={{
           // If you need to, you can tweak the effect transition using the wrapper style.
-          style: { transitionDelay: "1s" },
+          style: { transitionDelay: "0.4s" },
         }}
       />
     </div>
