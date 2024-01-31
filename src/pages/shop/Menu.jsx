@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Cards from "../../components/Card";
 import { FaFilter } from "react-icons/fa";
+import request from "../../axios/axios";
 
 const Menu = () => {
   const [menu, setMenu] = useState([]);
@@ -13,14 +14,18 @@ const Menu = () => {
   useEffect(() => {
     // Fetch data from the backend
     const fetchData = async () => {
-      try {
-        const response = await fetch("/menu.json");
-        const data = await response.json();
-        setMenu(data);
-        setFilteredItems(data); // Initially, display all items
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+      request
+        .get("/menu/")
+        .then(function (response) {
+          // handle success
+          const { data } = response;
+          setMenu(data);
+          setFilteredItems(data);
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+        });
     };
 
     fetchData();
