@@ -13,7 +13,7 @@ const CartItem = () => {
   const calculateTotalPrice = (item) => {
     return item.price * item.quantity;
   };
-  const cartSubtotal = cart.reduce((total, item) => {
+  const cartSubtotal = cart?.reduce((total, item) => {
     return total + calculateTotalPrice(item);
   }, 0);
 

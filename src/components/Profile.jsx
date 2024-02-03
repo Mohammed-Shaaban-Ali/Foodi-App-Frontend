@@ -4,9 +4,12 @@ import { AuthContext } from "../contexts/AuthProvider";
 import MyImage from "./../lazyLoadImage/MyImage";
 import { FaUserAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import useAdmin from "./../hooks/useAdmin";
 
 const Profile = ({ user }) => {
   const { logOut } = useContext(AuthContext);
+  const [isAdmin] = useAdmin();
+  // console.log(user);
   const handelLogout = () => {
     logOut()
       .then((result) => {})
@@ -52,6 +55,11 @@ const Profile = ({ user }) => {
             <li>
               <Link to="/">Order</Link>
             </li>
+            {isAdmin && (
+              <li>
+                <Link to="/dashboard">Dashboard</Link>
+              </li>
+            )}
             <li>
               <Link to="/">Setting</Link>
             </li>
