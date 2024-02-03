@@ -11,6 +11,7 @@ import Users from "../pages/dashboard/Users";
 import Login from "../components/Login";
 import PrivateRouter from "../PrivateRouter/PrivateRouter";
 import AddMenu from "../pages/dashboard/AddMenu";
+import ManageItems from "../pages/dashboard/ManageItems";
 
 const router = createBrowserRouter([
   {
@@ -63,10 +64,10 @@ const router = createBrowserRouter([
         path: "add-menu",
         element: <AddMenu />,
       },
-      // {
-      //   path: "manage-items",
-      //   element: <ManageItems/>
-      // },
+      {
+        path: "manage-items",
+        element: <ManageItems />,
+      },
       // {
       //   path: "update-menu/:id",
       //   element: <UpdateMenu/>,
