@@ -3,9 +3,9 @@ import logo from "/logo.png";
 import { FaRegUser } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import Modal from "./Modal";
-import { AuthContext } from "./../contexts/AuthProvider";
 import Profile from "./Profile";
 import useCart from "../hooks/useCart";
+import { AuthContext } from "../contexts/AuthProvider";
 
 const Navbar = () => {
   const [isSticky, setSticky] = useState(false);

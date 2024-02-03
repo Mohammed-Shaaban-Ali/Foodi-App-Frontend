@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 const Profile = ({ user }) => {
   const { logOut } = useContext(AuthContext);
+  // console.log(user);
   const handelLogout = () => {
     logOut()
       .then((result) => {})
@@ -51,6 +52,9 @@ const Profile = ({ user }) => {
             </li>
             <li>
               <Link to="/">Order</Link>
+            </li>
+            <li>
+              <Link to="/dashboard">Dashboard</Link>
             </li>
             <li>
               <Link to="/">Setting</Link>

@@ -3,14 +3,9 @@ import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../contexts/AuthProvider";
+import request from "../axios/axios";
 
 const Modal = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-
   const { signUpWithGmail, login } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -18,33 +13,53 @@ const Modal = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
-
+  //react hook form
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
   const onSubmit = (data) => {
     const email = data.email;
     const password = data.password;
-    // console.log(email, password);
     login(email, password)
       .then((result) => {
-        // const user = result.user;
-        document.getElementById("my_modal_5").close();
-        navigate(from, { replace: true });
+        // Signed in
+        const user = result.user;
+        const userInfor = {
+          name: data.name,
+          email: data.email,
+        };
+        request.post("/users", userInfor).then((response) => {
+          // console.log(response);
+          alert("Signin successful!");
+          navigate(from, { replace: true });
+        });
+        // console.log(user);
+        // ...
       })
       .catch((error) => {
         const errorMessage = error.message;
-        setErrorMessage(
-          errorMessage ? errorMessage : "Provide a correct email and password!"
-        );
+        setErrorMessage("Please provide valid email & password!");
       });
+    reset();
   };
 
   // google signin
   const handleLogin = () => {
     signUpWithGmail()
       .then((result) => {
-        // const user = result.user;
-        document.getElementById("my_modal_5").close();
-
-        navigate(from, { replace: true });
+        const user = result.user;
+        const userInfor = {
+          name: result?.user?.displayName,
+          email: result?.user?.email,
+        };
+        request.post("/users", userInfor).then((response) => {
+          // console.log(response);
+          // alert("Signin successful!");
+          navigate("/");
+        });
       })
       .catch((error) => console.log(error));
   };
