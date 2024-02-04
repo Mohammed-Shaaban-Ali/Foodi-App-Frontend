@@ -12,6 +12,8 @@ import Login from "../components/Login";
 import PrivateRouter from "../PrivateRouter/PrivateRouter";
 import AddMenu from "../pages/dashboard/AddMenu";
 import ManageItems from "../pages/dashboard/ManageItems";
+import UpdateMenu from "../pages/dashboard/UpdateMenu";
+import request from "../axios/axios";
 
 const router = createBrowserRouter([
   {
@@ -68,11 +70,11 @@ const router = createBrowserRouter([
         path: "manage-items",
         element: <ManageItems />,
       },
-      // {
-      //   path: "update-menu/:id",
-      //   element: <UpdateMenu/>,
-      //   loader: ({params}) => fetch(`http://localhost:6001/menu/${params.id}`)
-      // }
+      {
+        path: "update-menu/:id",
+        element: <UpdateMenu />,
+        loader: ({ params }) => request.get(`/menu/${params.id}`),
+      },
     ],
   },
 ]);
