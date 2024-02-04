@@ -3,6 +3,8 @@ import React from "react";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import MyImage from "../../lazyLoadImage/MyImage";
+import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const ManageItems = () => {
   const axiosSecure = useAxiosSecure();
@@ -13,17 +15,15 @@ const ManageItems = () => {
       return res.data;
     },
   });
-  // console.log(users);
-  const handleMakeAdmin = (user) => {
-    axiosSecure.patch(`/users/admin/${user._id}`).then((res) => {
-      alert(`${user.name} is now admin`);
-      refetch();
-    });
-  };
-
   const handleDeleteitem = (item) => {
     axiosSecure.delete(`/menu/${item._id}`).then((res) => {
-      alert(`${item.name} is removed from database`);
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Your Item is inserted successfully!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       refetch();
     });
   };
@@ -62,16 +62,11 @@ const ManageItems = () => {
                   <td>{menu.name}</td>
                   <td>{menu.price}</td>
                   <td>
-                    {menu.role === "admin" ? (
-                      "Admin"
-                    ) : (
-                      <button
-                        // onClick={() => handleMakeAdmin(menu)}
-                        className="btn btn-xs  bg-indigo-500 text-white"
-                      >
+                    <Link to={`/dashboard/update-menu/${menu._id}`}>
+                      <button className="btn btn-xs  bg-indigo-500 text-white">
                         <FaEdit className="text-sm" />
                       </button>
-                    )}
+                    </Link>
                   </td>
                   <td>
                     <button
