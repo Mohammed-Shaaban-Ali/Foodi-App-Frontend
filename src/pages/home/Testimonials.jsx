@@ -5,13 +5,23 @@ const Testimonials = () => {
   return (
     <section className="section-container">
       <div className="flex flex-col md:flex-row items-center justify-center gap-12">
-        <div className="md:w-1/2">
+        <div
+          data-aos="fade-right"
+          data-aos-duration="1000"
+          data-aos-delay="300"
+          className="md:w-1/2"
+        >
           <MyImage
             src="/images/home/testimonials/testimonials.png "
             alt="testimonials"
           />
         </div>
-        <div className="md:w-1/2 md:max-w-lg">
+        <div
+          data-aos="fade-left"
+          data-aos-duration="1000"
+          data-aos-delay="300"
+          className="md:w-1/2 md:max-w-lg"
+        >
           <div className="text-left">
             <p className="subtitle">Testimonials</p>
             <h2 className="title">What Our Customers Say About Us</h2>
