@@ -6,6 +6,8 @@
 body {
   font-family: "Inter", sans-serif;
   @apply bg-gradient-to-r from-[#FAFAFA] from-0% to-[#FCFCFC] to-100%;
+
+  /* overflow: hidden; */
 }
 
 .section-containar {

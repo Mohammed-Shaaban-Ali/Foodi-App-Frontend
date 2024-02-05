@@ -14,6 +14,7 @@ import AddMenu from "../pages/dashboard/AddMenu";
 import ManageItems from "../pages/dashboard/ManageItems";
 import UpdateMenu from "../pages/dashboard/UpdateMenu";
 import request from "../axios/axios";
+import Payment from "../pages/payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/cart-item",
         element: <CartItem />,
+      },
+      {
+        path: "/process-checkout",
+        element: <Payment />,
       },
     ],
   },

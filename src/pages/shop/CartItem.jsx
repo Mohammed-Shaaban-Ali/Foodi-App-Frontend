@@ -166,9 +166,13 @@ const CartItem = () => {
                 Total Price:{" "}
                 <span id="total-price">${cartSubtotal.toFixed(2)}</span>
               </p>
-              <button className="btn btn-md bg-green text-white px-8 py-1">
+
+              <Link
+                to="/process-checkout"
+                className="btn btn-md bg-green text-white px-8 py-1"
+              >
                 Procceed to Checkout
-              </button>
+              </Link>
             </div>
           </div>
         </div>
