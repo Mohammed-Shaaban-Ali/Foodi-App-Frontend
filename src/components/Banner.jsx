@@ -5,18 +5,18 @@ const Banner = () => {
   return (
     <section className="section-containar bg-gradient-to-r from-[#FAFAFA] from-0% to-[#FCFCFC] to-100% ">
       <div className="py-8 flex flex-col md:flex-row-reverse justify-center items-center gap-8">
-        <div className="md:w-1/2">
+        <div
+          data-aos="fade-left"
+          data-aos-duration="1000"
+          data-aos-delay="300"
+          className="md:w-1/2"
+        >
           <div className="w-[100%] md:w-[630px] ">
             <MyImage
               alt="banner"
               src="/images/home/banner.png"
               className="w-full object-contain"
             />
-            {/* <img
-              src="/images/home/banner.png"
-              className="w-full object-contain"
-              alt="banner"
-            /> */}
           </div>
 
           <div className="flex justify-between items-center -mt-14  ">
@@ -105,7 +105,12 @@ const Banner = () => {
           </div>
         </div>
 
-        <div className="md:w-1/2  space-y-8 md:max-w-lg">
+        <div
+          data-aos="fade-right"
+          data-aos-duration="1000"
+          data-aos-delay="300"
+          className="md:w-1/2  space-y-8 md:max-w-lg"
+        >
           <h2 className="md:text-5xl text-4xl font-bold md:leading-snug leading-snug">
             Dive into Delights Of Delectable
             <span className="text-green"> Food</span>

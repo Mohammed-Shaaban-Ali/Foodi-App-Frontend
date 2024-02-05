@@ -2,7 +2,12 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className=" section-container footer xl:px-24 py-10 px-4 text-base-content justify-stretch">
+    <footer
+      data-aos="fade-up"
+      data-aos-duration="1000"
+      data-aos-delay="300"
+      className=" section-container footer xl:px-24 py-10 px-4 text-base-content justify-stretch"
+    >
       <aside>
         <img src="/logo.png" alt="" />
         <p className="my-3 md:w-40">

@@ -84,7 +84,12 @@ const SpecialDishes = () => {
   };
   return (
     <section className="max-w-screen-2xl container mx-auto xl:px-24 px-4 my-20 relative">
-      <div className="text-left">
+      <div
+        data-aos="zoom-out-right"
+        data-aos-duration="1000"
+        data-aos-delay="300"
+        className="text-left"
+      >
         <p className="subtitle">Customer Favorites</p>
         <h2 className="title">Popular Catagories</h2>
       </div>

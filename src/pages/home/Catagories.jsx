@@ -31,7 +31,12 @@ const categoryItems = [
 const Catagories = () => {
   return (
     <section className="max-w-screen-xl container mx-auto xl:px-24 px-4 py-16">
-      <div className="text-center">
+      <div
+        data-aos="zoom-out-up"
+        data-aos-duration="1000"
+        data-aos-delay="300"
+        className="text-center"
+      >
         <p className="subtitle">Customer Favorites</p>
         <h2 className="title">Popular Catagories</h2>
       </div>
@@ -40,6 +45,9 @@ const Catagories = () => {
       <div className="flex flex-col sm:flex-row gap-8 md:gap-0 flex-wrap justify-around items-center mt-12 ">
         {categoryItems.map((item, i) => (
           <div
+            data-aos="zoom-out"
+            data-aos-duration="1000"
+            data-aos-delay="300"
             key={i}
             className="shadow-lg rounded-3xl bg-white py-6 w-64 mx-auto text-center cursor-pointer hover:-translate-y-4 transition-all duration-300 z-10"
           >

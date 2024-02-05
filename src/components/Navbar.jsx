@@ -67,6 +67,7 @@ const Navbar = () => {
   );
   return (
     <header
+      data-aos="fade-down"
       className={`max-w-screen-2xl container mx-auto fixed top-0 left-0 right-0 transition-all duration-300 ease-in-out`}
     >
       <div

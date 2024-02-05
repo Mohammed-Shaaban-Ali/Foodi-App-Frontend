@@ -32,7 +32,7 @@ const OurServices = () => {
     <section>
       <section className="section-container py-24">
         <div className="flex flex-col md:flex-row items-center justify-center gap-12">
-          <div className="md:w-1/2 md:max-w-xl">
+          <div data-aos="fade-right" className="md:w-1/2 md:max-w-xl">
             <div className="text-left">
               <p className="subtitle">Our Story & Services</p>
               <h2 className="title">Our Culinary Journey And Services</h2>
@@ -47,7 +47,10 @@ const OurServices = () => {
             </button>
           </div>
 
-          <div className="md:w-1/2 flex-wrap flex gap-8 items-center justify-center">
+          <div
+            data-aos="fade-left"
+            className="md:w-1/2 flex-wrap flex gap-8 items-center justify-center"
+          >
             {serviceLists.map((service, i) => (
               <div
                 key={i}
