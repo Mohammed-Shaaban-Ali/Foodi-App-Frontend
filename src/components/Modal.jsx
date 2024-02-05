@@ -58,8 +58,7 @@ const Modal = () => {
         request.post("/users", userInfor).then((response) => {
           // console.log(response);
           // alert("Signin successful!");
-          // navigate("/");
-          document.getElementById("my_modal_5").close();
+          navigate("/");
         });
       })
       .catch((error) => console.log(error));

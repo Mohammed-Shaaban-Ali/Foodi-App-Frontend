@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import logo from "/logo.png";
 import { FaRegUser } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
-import Modal from "./Modal";
 import Profile from "./Profile";
 import useCart from "../hooks/useCart";
 import { AuthContext } from "../contexts/AuthProvider";
@@ -11,7 +10,7 @@ const Navbar = () => {
   const [isSticky, setSticky] = useState(false);
   const { user } = useContext(AuthContext);
 
-  const [cart, refetch] = useCart();
+  const [cart] = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -158,14 +157,15 @@ const Navbar = () => {
           {user ? (
             <Profile user={user} />
           ) : (
-            <button
-              onClick={() => document.getElementById("my_modal_5").showModal()}
+            <Link
+              to="/login"
+              // onClick={() => document.getElementById("my_modal_5").showModal()}
               className="btn flex items-center  hover:bg-greenhover gap-2 rounded-full px-6 bg-green text-white"
             >
               <FaRegUser /> Login
-            </button>
+            </Link>
           )}
-          <Modal />
+          {/* <Modal /> */}
         </div>
       </div>
     </header>

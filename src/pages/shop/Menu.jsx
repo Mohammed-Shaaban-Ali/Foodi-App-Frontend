@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Cards from "../../components/Card";
 import { FaFilter } from "react-icons/fa";
 import request from "../../axios/axios";
+import Loading from "./../../components/Loading";
 
 const Menu = () => {
   const [menu, setMenu] = useState([]);
@@ -11,8 +12,9 @@ const Menu = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(8); // Number of items to display per page
 
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    // Fetch data from the backend
     const fetchData = async () => {
       request
         .get("/menu/")
@@ -29,6 +31,7 @@ const Menu = () => {
     };
 
     fetchData();
+    setLoading(false);
   }, []);
 
   const filterItems = (category) => {
@@ -111,93 +114,101 @@ const Menu = () => {
         </div>
       </div>
 
-      {/* menu shop  */}
-      <div className="section-container">
-        <div className="flex flex-col md:flex-row flex-wrap md:justify-between items-center space-y-3 mb-8">
-          {/* all category buttons */}
-          <div className="flex flex-row justify-start md:items-center md:gap-8 gap-4  flex-wrap">
-            <button
-              onClick={showAll}
-              className={selectedCategory === "all" ? "activet" : ""}
-            >
-              All
-            </button>
-            <button
-              onClick={() => filterItems("salad")}
-              className={selectedCategory === "salad" ? "activet" : ""}
-            >
-              Salad
-            </button>
-            <button
-              onClick={() => filterItems("pizza")}
-              className={selectedCategory === "pizza" ? "activet" : ""}
-            >
-              Pizza
-            </button>
-            <button
-              onClick={() => filterItems("soup")}
-              className={selectedCategory === "soup" ? "activet" : ""}
-            >
-              Soups
-            </button>
-            <button
-              onClick={() => filterItems("dessert")}
-              className={selectedCategory === "dessert" ? "activet" : ""}
-            >
-              Desserts
-            </button>
-            <button
-              onClick={() => filterItems("drinks")}
-              className={selectedCategory === "drinks" ? "activet" : ""}
-            >
-              Drinks
-            </button>
-          </div>
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          {/* menu shop  */}
+          <div className="section-container">
+            <div className="flex flex-col md:flex-row flex-wrap md:justify-between items-center space-y-3 mb-8">
+              {/* all category buttons */}
+              <div className="flex flex-row justify-start md:items-center md:gap-8 gap-4  flex-wrap">
+                <button
+                  onClick={showAll}
+                  className={selectedCategory === "all" ? "activet" : ""}
+                >
+                  All
+                </button>
+                <button
+                  onClick={() => filterItems("salad")}
+                  className={selectedCategory === "salad" ? "activet" : ""}
+                >
+                  Salad
+                </button>
+                <button
+                  onClick={() => filterItems("pizza")}
+                  className={selectedCategory === "pizza" ? "activet" : ""}
+                >
+                  Pizza
+                </button>
+                <button
+                  onClick={() => filterItems("soup")}
+                  className={selectedCategory === "soup" ? "activet" : ""}
+                >
+                  Soups
+                </button>
+                <button
+                  onClick={() => filterItems("dessert")}
+                  className={selectedCategory === "dessert" ? "activet" : ""}
+                >
+                  Desserts
+                </button>
+                <button
+                  onClick={() => filterItems("drinks")}
+                  className={selectedCategory === "drinks" ? "activet" : ""}
+                >
+                  Drinks
+                </button>
+              </div>
 
-          {/* filter options */}
-          <div className="flex justify-end mb-4 rounded-sm">
-            <div className="bg-black p-2 ">
-              <FaFilter className="text-white h-4 w-4" />
+              {/* filter options */}
+              <div className="flex justify-end mb-4 rounded-sm">
+                <div className="bg-black p-2 ">
+                  <FaFilter className="text-white h-4 w-4" />
+                </div>
+                <select
+                  id="sort"
+                  onChange={(e) => handleSortChange(e.target.value)}
+                  value={sortOption}
+                  className="bg-black text-white px-2 py-1 rounded-sm"
+                >
+                  <option value="default"> Default</option>
+                  <option value="A-Z">A-Z</option>
+                  <option value="Z-A">Z-A</option>
+                  <option value="low-to-high">Low to High</option>
+                  <option value="high-to-low">High to Low</option>
+                </select>
+              </div>
             </div>
-            <select
-              id="sort"
-              onChange={(e) => handleSortChange(e.target.value)}
-              value={sortOption}
-              className="bg-black text-white px-2 py-1 rounded-sm"
-            >
-              <option value="default"> Default</option>
-              <option value="A-Z">A-Z</option>
-              <option value="Z-A">Z-A</option>
-              <option value="low-to-high">Low to High</option>
-              <option value="high-to-low">High to Low</option>
-            </select>
+
+            {/* product card */}
+            <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4 ">
+              {currentItems.map((item) => (
+                <Cards key={item._id} item={item} />
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* product card */}
-        <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4 ">
-          {currentItems.map((item) => (
-            <Cards key={item._id} item={item} />
-          ))}
-        </div>
-      </div>
-
-      {/* Pagination */}
-      <div className="flex justify-center my-8">
-        {Array.from({
-          length: Math.ceil(filteredItems.length / itemsPerPage),
-        }).map((_, index) => (
-          <button
-            key={index + 1}
-            onClick={() => paginate(index + 1)}
-            className={`mx-1 px-3 py-1 rounded-full ${
-              currentPage === index + 1 ? "bg-green text-white" : "bg-gray-200"
-            }`}
-          >
-            {index + 1}
-          </button>
-        ))}
-      </div>
+          {/* Pagination */}
+          <div className="flex justify-center my-8">
+            {Array.from({
+              length: Math.ceil(filteredItems.length / itemsPerPage),
+            }).map((_, index) => (
+              <button
+                key={index + 1}
+                onClick={() => paginate(index + 1)}
+                className={`mx-1 px-3 py-1 rounded-full ${
+                  currentPage === index + 1
+                    ? "bg-green text-white"
+                    : "bg-gray-200"
+                }`}
+              >
+                {index + 1}
+              </button>
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 };
