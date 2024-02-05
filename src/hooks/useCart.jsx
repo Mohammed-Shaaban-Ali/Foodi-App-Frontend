@@ -11,7 +11,7 @@ const useCart = () => {
     queryKey: ["carts", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:8000/api/v1/cart?email=${user?.email}`,
+        `https://foodi-aa6f.onrender.com/api/v1/cart?email=${user?.email}`,
         {
           headers: {
             authorization: `Bearer ${token}`,
