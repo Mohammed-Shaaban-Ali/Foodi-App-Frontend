@@ -10,7 +10,7 @@ body {
   /* overflow: hidden; */
 }
 #root {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 .section-containar {
   @apply max-w-screen-2xl container mx-auto xl:px-24 px-4;
