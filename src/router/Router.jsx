@@ -15,6 +15,7 @@ import ManageItems from "../pages/dashboard/ManageItems";
 import UpdateMenu from "../pages/dashboard/UpdateMenu";
 import request from "../axios/axios";
 import Payment from "../pages/payment/Payment";
+import Error from "../layout/Error";
 
 const router = createBrowserRouter([
   {
@@ -81,6 +82,10 @@ const router = createBrowserRouter([
         loader: ({ params }) => request.get(`/menu/${params.id}`),
       },
     ],
+  },
+  {
+    path: "*",
+    element: <Error />,
   },
 ]);
 

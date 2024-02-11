@@ -7,7 +7,7 @@ const MyImage = (props) => {
     <div>
       <LazyLoadImage
         // eslint-disable-next-line react/prop-types
-        className={props.className}
+        className={`h-auto ${props.className}`}
         // eslint-disable-next-line react/prop-types
         alt={props.alt}
         //   height={image.height}

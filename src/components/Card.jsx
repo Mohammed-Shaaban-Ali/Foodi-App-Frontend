@@ -96,7 +96,7 @@ const Cards = ({ item }) => {
           <MyImage
             src={item.image}
             alt="Shoes"
-            className="hover:scale-105 transition-all duration-300 md:h-72"
+            className="hover:scale-105 transition-all duration-300 "
           />
         </figure>
       </Link>

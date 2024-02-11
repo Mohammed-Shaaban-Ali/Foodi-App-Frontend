@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 import Card from "../../components/Card";
+import Swal from "sweetalert2";
 
 const SampleNextArrow = (props) => {
   const { className, style, onClick } = props;
@@ -43,6 +44,15 @@ const SpecialDishes = () => {
         const specials = data.filter((item) => item.category === "popular");
         // console.log(specials)
         setRecipes(specials);
+      })
+      .catch((err) => {
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: err.message,
+          showConfirmButton: false,
+          timer: 3000,
+        });
       });
   }, []);
   const settings = {

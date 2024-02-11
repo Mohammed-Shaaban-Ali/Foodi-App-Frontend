@@ -9,6 +9,7 @@ import useAdmin from "./../hooks/useAdmin";
 const Profile = ({ user }) => {
   const { logOut } = useContext(AuthContext);
   const [isAdmin] = useAdmin();
+  // console.log(user.photoURL);
   // console.log(user);
   const handelLogout = () => {
     logOut()
@@ -28,17 +29,15 @@ const Profile = ({ user }) => {
             className="drawer-button btn btn-ghost btn-circle avatar"
           >
             <div className="w-10 rounded-full">
-              <MyImage
-                alt="Tailwind CSS Navbar component"
-                src={
-                  user.photoURL ? (
-                    user.photoURL
-                  ) : (
-                    <FaUserAlt className="text-green" />
-                  )
-                }
-              />
-            </div>{" "}
+              {user.photoURL ? (
+                <MyImage
+                  alt="Tailwind CSS Navbar component"
+                  src={user.photoURL}
+                />
+              ) : (
+                <FaUserAlt className="text-green" />
+              )}
+            </div>
           </label>
         </div>
         <div className="drawer-side">

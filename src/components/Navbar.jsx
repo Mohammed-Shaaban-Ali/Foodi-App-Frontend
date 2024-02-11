@@ -9,7 +9,6 @@ import { AuthContext } from "../contexts/AuthProvider";
 const Navbar = () => {
   const [isSticky, setSticky] = useState(false);
   const { user } = useContext(AuthContext);
-
   const [cart] = useCart();
 
   useEffect(() => {
