@@ -9,7 +9,6 @@ import { AuthContext } from "../contexts/AuthProvider";
 const Login = () => {
   const [errorMessage, seterrorMessage] = useState("");
   const { signUpWithGmail, login } = useContext(AuthContext);
-  // const axiosPublic = useAxiosPublic();
 
   const navigate = useNavigate();
   const location = useLocation();

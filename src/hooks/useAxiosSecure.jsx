@@ -4,6 +4,7 @@ import useAuth from "./useAuth";
 
 const axiosSecure = axios.create({
   baseURL: "https://foodi-aa6f.onrender.com/api/v1",
+  // baseURL: "http://localhost:8000/api/v1",
 });
 
 const useAxiosSecure = () => {

@@ -17,7 +17,6 @@ const Main = () => {
         <Loading />
       ) : (
         <>
-          {" "}
           <Navbar />
           <Outlet />
           <Footer />
