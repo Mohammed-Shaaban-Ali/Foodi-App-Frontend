@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { AuthContext } from "../contexts/AuthProvider";
 import MyImage from "./../lazyLoadImage/MyImage";
 import { FaUserAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import useAdmin from "./../hooks/useAdmin";
 
 const Profile = ({ user }) => {
@@ -49,18 +49,20 @@ const Profile = ({ user }) => {
           <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
             {/* Sidebar content here */}
             <li>
-              <Link to="/update-profile">Profile</Link>
+              <NavLink to="/update-profile" aria-label="close sidebar">
+                Profile
+              </NavLink>
             </li>
             <li>
-              <Link to="/">Order</Link>
+              <NavLink to="/menu">Order</NavLink>
             </li>
             {isAdmin && (
               <li>
-                <Link to="/dashboard">Dashboard</Link>
+                <NavLink to="/dashboard">Dashboard</NavLink>
               </li>
             )}
             <li>
-              <Link to="/">Setting</Link>
+              <NavLink to="/setting">Setting</NavLink>
             </li>
             <li>
               <a onClick={handelLogout}>Logout</a>

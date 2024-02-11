@@ -3,6 +3,7 @@ import Cards from "../../components/Card";
 import { FaFilter } from "react-icons/fa";
 import request from "../../axios/axios";
 import Loading from "./../../components/Loading";
+import Swal from "sweetalert2";
 
 const Menu = () => {
   const [menu, setMenu] = useState([]);
@@ -26,6 +27,13 @@ const Menu = () => {
         })
         .catch(function (error) {
           // handle error
+          Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: error.message,
+            showConfirmButton: false,
+            timer: 5000,
+          });
           console.log(error);
         });
     };
