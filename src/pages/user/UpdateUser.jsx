@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 
@@ -7,6 +7,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import request from "../../axios/axios";
 
 const UpdateUser = () => {
+  const [load, setload] = useState(false);
   const { updateUserProfile, user } = useContext(AuthContext);
 
   const {
@@ -23,12 +24,14 @@ const UpdateUser = () => {
   const image_hosting_api = `https://api.imgbb.com/1/upload?key=f41682ac2d92cb34d7e0a66808d86636`;
 
   const onSubmit = async (data) => {
+    setload(true);
     const imageFile = { image: data.image[0] };
     const hostingImg = await request.post(image_hosting_api, imageFile, {
       headers: {
         "content-type": "multipart/form-data",
       },
     });
+    setload(false);
 
     if (hostingImg.data.success) {
       const name = data.name;
@@ -90,7 +93,9 @@ const UpdateUser = () => {
             />
           </div>
           <div className="form-control mt-6">
-            <button className="btn bg-green text-white">Update</button>
+            <button className="btn bg-green text-white" disabled={load}>
+              {load ? "Loading..." : "Update"}
+            </button>
           </div>
         </form>
       </div>

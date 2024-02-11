@@ -5,6 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import Profile from "./Profile";
 import useCart from "../hooks/useCart";
 import { AuthContext } from "../contexts/AuthProvider";
+import MyImage from "../lazyLoadImage/MyImage";
 
 const Navbar = () => {
   const [isSticky, setSticky] = useState(false);
@@ -101,7 +102,7 @@ const Navbar = () => {
             </ul>
           </div>
           <Link href="/">
-            <img src={logo} alt="logo" />
+            <MyImage src={logo} alt="logo" />
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">

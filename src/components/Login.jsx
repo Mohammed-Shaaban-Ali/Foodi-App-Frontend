@@ -8,6 +8,7 @@ import { AuthContext } from "../contexts/AuthProvider";
 
 const Login = () => {
   const [errorMessage, seterrorMessage] = useState("");
+  const [load, setload] = useState(false);
   const { signUpWithGmail, login } = useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -51,6 +52,7 @@ const Login = () => {
 
   // login with google
   const handleRegister = () => {
+    setload(true);
     signUpWithGmail()
       .then((result) => {
         const user = result.user;
@@ -61,6 +63,7 @@ const Login = () => {
         request.post("/users", userInfor).then((response) => {
           // console.log(response);
           // alert("Signin successful!");
+          setload(false);
           navigate("/");
         });
       })
@@ -122,7 +125,8 @@ const Login = () => {
               <input
                 type="submit"
                 className="btn bg-green text-white"
-                value="Login"
+                value={load ? "Loading..." : "Login"}
+                disabled={load}
               />
             </div>
 
