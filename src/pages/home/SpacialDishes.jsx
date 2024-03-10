@@ -6,6 +6,9 @@ import Slider from "react-slick";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 import Card from "../../components/Card";
 import Swal from "sweetalert2";
+import CardLoding from "../../components/CardLoding";
+import { useQuery } from "@tanstack/react-query";
+import request from "../../axios/axios";
 
 const SampleNextArrow = (props) => {
   const { className, style, onClick } = props;
@@ -34,27 +37,30 @@ const SamplePrevArrow = (props) => {
 };
 
 const SpecialDishes = () => {
-  const [recipes, setRecipes] = useState([]);
   const slider = React.useRef(null);
+  const getSpecials = async () => {
+    const { data } = await request.get("/menu/");
+    return data;
+  };
+  const {
+    isLoading,
+    error,
+    data: recipes,
+  } = useQuery({
+    queryKey: ["special"],
+    queryFn: getSpecials,
+  });
 
-  useEffect(() => {
-    fetch("https://foodi-aa6f.onrender.com/api/v1/menu/")
-      .then((res) => res.json())
-      .then((data) => {
-        const specials = data.filter((item) => item.category === "popular");
-        // console.log(specials)
-        setRecipes(specials);
-      })
-      .catch((err) => {
-        Swal.fire({
-          position: "top-end",
-          icon: "error",
-          title: err.message,
-          showConfirmButton: false,
-          timer: 3000,
-        });
-      });
-  }, []);
+  if (error) {
+    Swal.fire({
+      position: "top-end",
+      icon: "error",
+      title: error.message,
+      showConfirmButton: false,
+      timer: 3000,
+    });
+  }
+
   const settings = {
     dots: true,
     infinite: true,
@@ -92,6 +98,7 @@ const SpecialDishes = () => {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
+
   return (
     <section className="max-w-screen-2xl container mx-auto xl:px-24 px-4 my-20 relative">
       <div
@@ -123,9 +130,9 @@ const SpecialDishes = () => {
         {...settings}
         className="overflow-hidden mt-10 space-x-5"
       >
-        {recipes.map((item, i) => (
-          <Card item={item} key={i} />
-        ))}
+        {isLoading
+          ? [1, 2, 3, 4, 5]?.map((item, i) => <CardLoding key={i} />)
+          : recipes?.map((item, i) => <Card item={item} key={i} />)}
       </Slider>
     </section>
   );
