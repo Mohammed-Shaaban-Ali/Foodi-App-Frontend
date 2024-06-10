@@ -70,7 +70,7 @@ To get started with the project, follow these steps:
 
 1. **Clone the repository**
    \`\`\`bash
-   git clone https://github.com/yourusername/food-app.git
+   git clone https://github.com/Mohammed-Shaaban-Ali/Foodi-App-Frontend.git
    \`\`\`
 
 2. **Install dependencies**
